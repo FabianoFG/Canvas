@@ -6,26 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
         function desenhar(){
+            var px=25;
+            var py=25;
             var canvas=document.getElementById("desenho1");
             var ctx=canvas.getContext("2d");
 
-            ctx.fillStyle="#00f";
-            ctx.fillRect(10,10,50,50);
-
-            ctx.fillStyle="#0f0";
-            ctx.fillRect(60,60,50,50);
-
-            ctx.fillStyle="#f00";
-            ctx.fillRect(110,110,50,50);
-
-            ctx.fillStyle="rgba(255,0,0,0.5)";
-            ctx.fillRect(200,200,75,75);
-
-            ctx.fillStyle="rgba(0,255,0,0.5)";
-            ctx.fillRect(250,200,75,75);
-
-            ctx.fillStyle="rgba(0,0,255,0.5)";
-            ctx.fillRect(225,225,75,75);
+            ctx.moveTo(0,0);
+            ctx.lineTo(250,250);
+            ctx.lineTo(400,250);
+            ctx.lineTo(400,100);
+            ctx.moveTo(250,250);
+            ctx.lineTo(400,100);
+            ctx.moveTo(250,250);
+            ctx.lineTo(200,300);
+            ctx.stroke();
         }
     </script>
 </head>
