@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="desenho1" width="500px" height="500px" style="border: 1px solid #000;">
+        <h3>Seu navegador não tem suporte ao Canvas!</h3>
+    </canvas>
+    <script type="text/javascript">
+
+        var canvas=document.getElementById('desenho1');
+        var ctx=canvas.getContext('2d');
+        
+        let coisa=new Image();
+        coisa.src="img/coisa.jpg"
+        let numSpriteL=0;
+        let numSpriteA=0;
+        let posIniX=0;
+        let posIniY=0;
+        let largSprite=0;
+        let altSprite=0;
+        let numSpritesL=4;
+        let numSpritesA=4;
+
+        coisa.addEventListener('load',()=>{
+            
+            largSprite=coisa.width/numSpritesL;
+            altSprite=coisa.height/numSpritesA;
+            posIniX=largSprite*numSpriteL;
+            posIniY=altSprite*numSpriteA;
+            ctx.drawImage(coisa,posIniX,posIniY,largSprite,altSprite,0,0,largSprite,altSprite);
+            
+        });
+
+        let anima=setInterval(()=>{
+            ctx.clearRect(0,0,500,500);
+            numSpriteL++;
+            if(numSpriteL>3){
+                numSpriteL=0;
+            }
+            posIniX=largSprite*numSpriteL;
+            ctx.drawImage(coisa,posIniX,posIniY,largSprite,altSprite,0,0,largSprite,altSprite);
+        },200);
+        // function desenhar(){
+        //     ctx.clearRect(0,0,500,500);
+
+
+        //     requestAnimationFrame(desenhar);
+        // }
+        // desenhar();
+    </script>
+</body>
+</html>
